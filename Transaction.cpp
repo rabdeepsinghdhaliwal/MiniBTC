@@ -1,6 +1,6 @@
 #include "Transaction.h"
-#include "nlohmann/json.hpp" // ✅ Ensure JSON is included
-using json = nlohmann::json; // ✅ Define json namespace
+#include "nlohmann/json.hpp" 
+using json = nlohmann::json; 
 
 // Constructor
 Transaction::Transaction(string sender, string receiver, int amt) {
@@ -36,7 +36,7 @@ void Transaction::save_to_file() {
         {"amount", amount}
     });
 
-    // ✅ FIX: Overwrite file with correctly formatted JSON array
+    // Overwrite file with correctly formatted JSON array
     ofstream outFile("transactions.json");
     outFile << t_list.dump(4); // Pretty-print JSON with indentation
     outFile.close();
