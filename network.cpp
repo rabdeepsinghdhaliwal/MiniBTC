@@ -1,6 +1,6 @@
 #include "network.h"
 
-vector<string> peer_ips = { "192.168.246.31", "192.168.246.29" }; // Your actual IPs
+vector<string> peer_ips = { "192.168.***.**", "192.168.***.**" }; // Your actual IPs
 
 void delete_transactions_file() {
     if (remove("transactions.json") == 0) {
@@ -70,11 +70,11 @@ void broadcast_transaction(io_service& io) {
         }
         inFile.close();
         cout << "[✅] File sent to " << ip << "!\n";
-        broadcast_successful = true; // ✅ Set flag to true if at least one send succeeds
+        broadcast_successful = true; //Set flag to true if at least one send succeeds
     }
 
     if (broadcast_successful) {
-        delete_transactions_file();  // ✅ Only delete if at least one transaction was successfully sent
+        delete_transactions_file();  //Only delete if at least one transaction was successfully sent
     } else {
         cout << "[⚠️] Warning: Transaction file not deleted as no successful broadcasts happened.\n";
     }
